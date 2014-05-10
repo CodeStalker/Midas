@@ -1,0 +1,213 @@
+// ======================================================================
+// Midas
+// ======================================================================
+//
+// A small SASS powered kickstarter for RWD
+// Brought to you by @CodeStalker - midas.jamessteel.co.uk
+
+// ======================================================================
+// Typography
+// ======================================================================
+
+@import "../config";
+
+// ======================================================================
+// Basic
+// ======================================================================
+
+html {
+  font-size: 75%;
+  -webkit-font-smoothing: $webkit-smoothing;
+}
+
+@media only screen and (min-width: 320px)  { html { font-size: 81.25%; }} 			
+@media only screen and (min-width: 480px)  { html { font-size: 87.5%;  }}
+@media only screen and (min-width: 640px)  { html { font-size: 100%;   }}
+@media only screen and (min-width: 960px)  { html { font-size: 112.5%; }}
+@media only screen and (min-width: 1440px) { html { font-size: 125%;   }}
+
+body {
+  font-size: 	$global-font-size;
+  line-height: 	$global-line-height;
+  font-weight: 	$global-font-weight;
+  color: 		$global-font-color;
+  font-family: 	$global-font-stack;
+}
+
+// ======================================================================
+// Headings
+// ======================================================================
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 1.414rem 0 0.5rem;
+  line-height: $global-line-height;
+  color: $global-heading-color;
+  font-weight: $global-font-weight;
+  text-rendering: optimizeLegibility;
+  font-family: $global-heading-stack;
+}
+
+// Values below use the perfect fourth ratio.
+// Generated with Typescale.com - http://bit.ly/1lxW2J8
+
+h1 {
+  font-size: 3.157rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2.369rem;
+}
+
+h3 {
+  font-size: 1.777rem;
+}
+
+h4 {
+  font-size: 1.333rem;
+}
+
+h5,h6 {
+  font-size: 1rem;
+  margin: 1.414rem 0 0.5rem;
+}
+
+// ======================================================================
+// Paragraphs
+// ======================================================================
+
+p {
+  margin-bottom: 1.3rem;
+}
+
+// ======================================================================
+// Tables
+// ======================================================================
+
+table {
+  border-collapse: collapse;
+  position: relative;
+  table-layout: fixed;
+  width: 100%;
+  tr,th,td {
+    margin: 0;
+  }
+  td {
+    line-height: $global-line-height;
+  }
+}
+
+thead,tfoot,tbody {
+  width: 100%;
+}
+
+caption {
+  line-height: $global-line-height;
+}
+
+// ======================================================================
+// Quotes
+// ======================================================================
+
+blockquote {
+  padding: 0;
+  margin: 0;
+  line-height: $global-line-height;
+}
+
+blockquote > p {
+  padding: 0;
+}
+
+// ======================================================================
+// Misc
+// ======================================================================
+
+a {
+  text-decoration: none;
+  color: $link;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: $link-hover;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $dark;
+  margin: 1.5rem 0 1.5rem 0;
+  padding: 0;
+}
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4rem;
+}
+
+sub {
+  top: 0.4rem;
+}
+
+strong {
+  font-weight: $extrabold;
+}
+
+rem,dfn,cite,q {
+  line-height: $global-line-height;
+}
+
+dfn {
+  font-weight: $extrabold;
+}
+
+pre,code,tt,kbd {
+  font-family: $terminal;
+}
+
+pre {
+  white-space: pre;
+}
+
+pre,code,tt {
+  font-size: 0.9rem;
+  line-height: $global-line-height;
+}
+
+tt {
+  display: block;
+  margin: 1.5rem 0;
+}
+
+kbd {
+  position: relative;
+  top: -1px;
+  margin-bottom: 1px;
+  padding: 0 0;
+  font-size: 0.9rem;
+}
+
+@media only screen and (min-width: 480px) {
+  kbd {
+    padding: 0.1rem 0rem;
+    font-size: 0.75rem;
+  }
+}
+
+pre {
+  code {
+    padding: 0rem 0 1.5rem;
+  }
+}
+
+pre {
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  white-space: pre\9;
+}

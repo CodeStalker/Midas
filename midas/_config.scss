@@ -1,0 +1,57 @@
+// ======================================================================
+// Midas
+// ======================================================================
+//
+// A small SASS powered kickstarter for RWD
+// Brought to you by @CodeStalker - midas.jamessteel.co.uk
+
+// ======================================================================
+// Config
+// ======================================================================
+
+$pesticide-debug: false;
+
+// Colors
+
+$bright: 	#ecf0f1;
+$medium: 	#7f8c8d;
+$dark: 		#333333;
+
+$primary: 	#2ecc71;
+$secondary: #16a085;
+$tertiary: 	#2980b9;
+
+// Weights
+
+$ultralight: 	100;
+$thin: 			200;
+$light: 		300;
+$regular: 		400;
+$semibold: 		500;
+$bold: 			600;
+$extrabold: 	700;
+$heavy: 		800;
+$ultraheavy: 	900;
+
+// Smoothing
+
+$webkit-smoothing: antialiased;
+
+// Fonts
+
+$global-font-size: 		1rem;
+$global-line-height: 	1.5;
+
+$global-font-stack: 	$sgillsans;
+$global-font-weight: 	$thin;
+$global-font-color: 	$dark;
+
+// Headings
+$global-heading-stack: 	$sgillsans;
+$global-heading-color: 	$primary;
+$global-heading-weight: $regular;
+
+// Links
+
+$link:			#666;
+$link-hover:	#222;
