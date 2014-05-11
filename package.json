@@ -1,0 +1,17 @@
+{
+  "name": "Midas",
+  "version": "0.2.5",
+  "description": "A nimble little SASS powered kick starter for modern RWD web builds",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CodeStalker/Midas.git"
+  },
+  "devDependencies": {
+    "gulp": "~3.6.2",
+    "gulp-concat": "~2.2.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-uglify": "~0.3.0",
+    "gulp-sass": "~0.7.1",
+    "gulp-minify-css": "~0.3.4"
+  }
+}

@@ -8,6 +8,13 @@ This kickstarter is the result of that series.
 
 It's time we started to think.
 
+## Usage
+
+1. Install NPM
+2. Run from terminal:
+
+`npm install gulp gulp-minify-css gulp-concat gulp-uglify gulp-rename gulp-sass --save-dev`
+
 <small> Midas is Copyright © 2014 James Steel <jamesrobertsteel@googlemail.com>
 This work is free. You can redistribute it and/or modify it under the
 terms of the Do What The Fuck You Want To Public License, Version 2,
