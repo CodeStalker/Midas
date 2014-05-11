@@ -17,6 +17,7 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('assets/js/dist/'));
 });
 
+// Process Sass
 gulp.task('sass', function () {
     gulp.src('midas/site.scss')
         .pipe(sass())
