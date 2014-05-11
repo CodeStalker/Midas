@@ -8,7 +8,11 @@ This kickstarter is the result of that series.
 
 It's time we started to think.
 
-## Usage
+## Simple Usage
+
+You can just grab the files and work with CodeKit, Prepos or similar. Alternatively a simple Gulp config is provided: 
+
+## Gulp Usage
 
 1. Install NPM
 2. Run from terminal:
