@@ -2,11 +2,21 @@
 var gulp = require('gulp');
 
 // Include plugins
+var browserSync = require('browser-sync');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var minifyCSS = require('gulp-minify-css');
 var sass = require('gulp-sass');
+
+// Static Browser Sync server http://www.browsersync.io/
+gulp.task('browser-sync', function() {
+    browserSync.init(null, {
+      server: {
+        baseDir: "./"
+      }
+    });
+});
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
@@ -14,16 +24,25 @@ gulp.task('scripts', function() {
       .pipe(concat('site.js'))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('assets/js/dist/'));
+        .pipe(gulp.dest('assets/js/dist/'))
+        .pipe(browserSync.reload({stream:true}));
 });
 
-// Process Sass
+
+// Parse Sass files
 gulp.task('sass', function () {
     gulp.src('midas/site.scss')
-        .pipe(sass())
+        .pipe(sass({includePaths: ['scss']}))
         .pipe(minifyCSS())
-        .pipe(gulp.dest('assets/css'));
+        .pipe(gulp.dest('assets/css'))
+        .pipe(browserSync.reload({stream:true}));
 });
 
-// Default Task
-gulp.task('default', ['scripts','sass']);
+// Default task to be run with `gulp`
+gulp.task('default', ['scripts','sass','browser-sync'], function () {
+	// Watch .scss files
+	gulp.watch('midas/**/*.scss', ['sass']);
+	// Watch .js files
+	gulp.watch('assets/js/src/*.js', ['scripts']);	
+});
+
