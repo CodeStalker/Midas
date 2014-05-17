@@ -44,5 +44,9 @@ gulp.task('default', ['scripts','sass','browser-sync'], function () {
 	gulp.watch('midas/**/*.scss', ['sass']);
 	// Watch .js files
 	gulp.watch('assets/js/src/*.js', ['scripts']);	
+		// Watch .html files
+	gulp.watch('*.html').on('change', function(file) {
+		browserSync.reload();
+	});
 });
 
