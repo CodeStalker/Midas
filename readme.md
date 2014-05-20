@@ -15,9 +15,13 @@ You can just grab the files and work with CodeKit, Prepos or similar. Alternativ
 ## Gulp Usage
 
 1. Install NPM
-2. Run from terminal:
+2. Run from terminal in your midas folder:
 
 `npm install gulp browser-sync streamqueue gulp-minify-css gulp-concat gulp-uglify gulp-rename gulp-sass --save-dev`
+
+then start some magic with:
+
+`gulp`
 
 <small> Midas is Copyright © 2014 James Steel <jamesrobertsteel@googlemail.com>
 This work is free. You can redistribute it and/or modify it under the
