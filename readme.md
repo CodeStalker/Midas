@@ -17,7 +17,7 @@ You can just grab the files and work with CodeKit, Prepos or similar. Alternativ
 1. Install NPM
 2. Run from terminal:
 
-`npm install gulp browser-sync gulp-minify-css gulp-concat gulp-uglify gulp-rename gulp-sass --save-dev`
+`npm install gulp browser-sync streamqueue gulp-minify-css gulp-concat gulp-uglify gulp-rename gulp-sass --save-dev`
 
 <small> Midas is Copyright © 2014 James Steel <jamesrobertsteel@googlemail.com>
 This work is free. You can redistribute it and/or modify it under the
