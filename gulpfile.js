@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var minifyCSS = require('gulp-minify-css');
 var sass = require('gulp-sass');
+var streamqueue  = require('streamqueue');
 
 // Static Browser Sync server http://www.browsersync.io/
 gulp.task('browser-sync', function() {
@@ -18,14 +19,27 @@ gulp.task('browser-sync', function() {
     });
 });
 
+
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('assets/js/src/*.js')
-      .pipe(concat('site.js'))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(uglify())
-        .pipe(gulp.dest('assets/js/dist/'))
-        .pipe(browserSync.reload({stream:true}));
+
+
+    return streamqueue({ objectMode: true },
+        gulp.src('assets/js/src/vendor/*.js'),
+        gulp.src('assets/js/src/plugins/*.js'),
+        gulp.src('assets/js/src/script.js')
+    )
+
+	.pipe(concat('site.js'))
+	.pipe(rename({
+		suffix: '.min'
+	}))
+	
+	.pipe(uglify())
+	.pipe(gulp.dest('assets/js/dist/'))
+	.pipe(browserSync.reload({
+		stream: true
+	}));
 });
 
 
@@ -44,7 +58,7 @@ gulp.task('default', ['scripts','sass','browser-sync'], function () {
 	gulp.watch('midas/**/*.scss', ['sass']);
 	// Watch .js files
 	gulp.watch('assets/js/src/*.js', ['scripts']);	
-		// Watch .html files
+	// Watch .html files
 	gulp.watch('*.html').on('change', function(file) {
 		browserSync.reload();
 	});
