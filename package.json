@@ -6,6 +6,16 @@
     "type": "git",
     "url": "git://github.com/CodeStalker/Midas.git"
   },
+  "dependencies": {
+    "gulp": "~3.6.2",
+    "gulp-concat": "~2.2.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-uglify": "~0.3.0",
+    "gulp-sass": "~0.7.1",
+    "gulp-minify-css": "~0.3.4",
+    "browser-sync": "~0.9.1",
+    "gulp-imagemin": "~0.5.0"
+  },
   "devDependencies": {
     "gulp": "~3.6.2",
     "gulp-concat": "~2.2.0",
@@ -13,6 +23,13 @@
     "gulp-uglify": "~0.3.0",
     "gulp-sass": "~0.7.1",
     "gulp-minify-css": "~0.3.4",
-    "browser-sync": "~0.9.1"
+    "browser-sync": "~0.9.1",
+    "gulp-imagemin": "~0.5.0",
+    "imagemin-pngcrush": "~0.1.0",
+    "imagemin-svgo": "~0.1.0",
+    "imagemin-gifsicle": "~0.1.1",
+    "imagemin-jpegtran": "~0.1.0",
+    "gulp-changed": "~0.3.0",
+    "gulp-minify-html": "~0.1.3"
   }
 }
