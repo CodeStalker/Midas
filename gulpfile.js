@@ -11,7 +11,8 @@ var sass = require('gulp-sass');
 var changed = require('gulp-changed');
 var imagemin = require('gulp-imagemin');
 var minifyHTML = require('gulp-minify-html');
-var streamqueue  = require('streamqueue');
+var notify = require("gulp-notify");
+var streamqueue = require("streamqueue");
 
 // Static Browser Sync server http://www.browsersync.io/
 gulp.task('browser-sync', function() {
@@ -22,36 +23,34 @@ gulp.task('browser-sync', function() {
     });
 });
 
-// Concatenate & Minify JS
 gulp.task('scripts', function() {
 
 
     return streamqueue({ objectMode: true },
-        gulp.src('project/src/assets/js/src/vendor/*.js'),
-        gulp.src('project/src/assets/js/src/plugins/*.js'),
-        gulp.src('project/src/assets/js/src/script.js')
+        gulp.src('project/src/assets/js/vendor/*.js'),
+        gulp.src('project/src/assets/js/plugins/*.js'),
+        gulp.src('project/src/assets/js/script.js')
     )
-
 	.pipe(concat('site.js'))
 	.pipe(rename({
 		suffix: '.min'
 	}))
-	
+	.pipe(notify("JS files joined..."))
 	.pipe(uglify())
 	.pipe(gulp.dest('project/build/assets/js'))
-	.pipe(browserSync.reload({
-		stream: true
-	}));
+	.pipe(notify("JS files done..."))
+	//.pipe(browserSync.reload({
+	//	stream: true
+	//}));
 });
-
 
 // Parse Sass files
 gulp.task('sass', function () {
     gulp.src('project/src/assets/midas/site.scss')
         .pipe(sass({includePaths: ['scss']}))
         .pipe(minifyCSS())
+        .pipe(notify("SASS processed"))
         .pipe(gulp.dest('project/build/assets/css'))
-        .pipe(browserSync.reload({stream:true}));
 });
 
 // minify new images
@@ -62,7 +61,8 @@ gulp.task('imagemin', function() {
   gulp.src(imgSrc)
     .pipe(changed(imgDst))
     .pipe(imagemin())
-    .pipe(gulp.dest(imgDst));
+    .pipe(gulp.dest(imgDst))
+    .pipe(notify("Images done"))
 });
 
 
@@ -80,18 +80,18 @@ var htmlSrc = 'project/src/*.html',
 });
 
 // Default task to be run with `gulp`
-gulp.task('default', ['scripts','sass','imagemin','htmlpage','browser-sync'], function () {
+gulp.task('default', ['browser-sync'], function () {
 	
 	// Watch .scss files
 	gulp.watch('project/src/assets/midas/**/*.scss', ['sass']);
 	
 	// Watch .js files
-	gulp.watch('project/src/assets/js/src/*.js', ['scripts']);	
+	gulp.watch('project/src/assets/js/**/*.js', ['scripts']);	
 
 	//minify html on change
 	gulp.watch('project/src/*.html', ['htmlpage']);
 	
-	//minify html on change
+	//minify images on change
 	gulp.watch('project/src/assets/images/**/*', ['imagemin']);		
 
 	// Watch if anything changes in the build folder and reload browserSync if so
