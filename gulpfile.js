@@ -23,6 +23,7 @@ gulp.task('browser-sync', function() {
     });
 });
 
+// Minify & Concat js
 gulp.task('scripts', function() {
 
 
@@ -46,8 +47,7 @@ gulp.task('scripts', function() {
 
 // Parse Sass files
 gulp.task('sass', function () {
-    gulp.src('project/src/assets/midas/site.scss')
-        .pipe(sass({includePaths: ['scss']}))
+    gulp.src('project/src/assets/midas/**/*.scss')
         .pipe(minifyCSS())
         .pipe(notify("SASS processed"))
         .pipe(gulp.dest('project/build/assets/css'))
