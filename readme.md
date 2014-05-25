@@ -17,7 +17,7 @@ You can just grab the files and work with CodeKit, Prepos or similar. Alternativ
 1. Install NPM
 2. Run from terminal in your midas folder:
 
-`nopm install gulp gulp-concat gulp-rename gulp-uglify gulp-sass gulp-minify-css browser-sync gulp-imagemin gulp-changed gulp-minify-html gulp-notify gulp-clean streamqueue --save-dev`
+`npm install gulp gulp-concat gulp-rename gulp-uglify gulp-sass gulp-minify-css browser-sync gulp-imagemin gulp-changed gulp-minify-html gulp-notify gulp-clean streamqueue glob gulp-uncss --save-dev`
 
 then start some magic with:
 

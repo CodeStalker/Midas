@@ -13,6 +13,8 @@ var imagemin = require('gulp-imagemin');
 var minifyHTML = require('gulp-minify-html');
 var notify = require("gulp-notify");
 var streamqueue = require("streamqueue");
+var glob = require('glob');
+var uncss = require('gulp-uncss');
 
 // Static Browser Sync server http://www.browsersync.io/
 gulp.task('browser-sync', function() {
@@ -48,10 +50,20 @@ gulp.task('scripts', function() {
 // Parse Sass files
 gulp.task('sass', function () {
     gulp.src('project/src/assets/midas/**/*.scss')
-        .pipe(minifyCSS())
+        .pipe(sass())
         .pipe(notify("SASS processed"))
+        .pipe(uncss({
+            html: glob.sync('project/src/*.html')
+        }))
+        .pipe(notify("CSS decrufted"))
+        .pipe(minifyCSS())       
         .pipe(gulp.dest('project/build/assets/css'))
+		.pipe(browserSync.reload({
+			stream: true
+		}));        
 });
+
+
 
 // minify new images
 gulp.task('imagemin', function() {
@@ -80,7 +92,7 @@ var htmlSrc = 'project/src/*.html',
 });
 
 // Default task to be run with `gulp`
-gulp.task('default', ['browser-sync'], function () {
+gulp.task('default', ['sass','scripts','imagemin','htmlpage','browser-sync'], function () {
 	
 	// Watch .scss files
 	gulp.watch('project/src/assets/midas/**/*.scss', ['sass']);
@@ -95,8 +107,8 @@ gulp.task('default', ['browser-sync'], function () {
 	gulp.watch('project/src/assets/images/**/*', ['imagemin']);		
 
 	// Watch if anything changes in the build folder and reload browserSync if so
-	gulp.watch('project/build/**/*').on('change', function(file) {
-		browserSync.reload();
-	});
+	//gulp.watch('project/build/**/*').on('change', function(file) {
+	//	browserSync.reload();
+	//});
 });
 
