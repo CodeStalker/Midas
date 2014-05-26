@@ -25,6 +25,7 @@
     "gulp-clean": "~0.2.4",
     "streamqueue": "0.0.7",
     "glob": "~4.0.0",
-    "gulp-uncss": "~0.4.3"
+    "gulp-uncss": "~0.4.3",
+    "gulp-watch": "~0.6.5"
   }
 }
