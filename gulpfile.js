@@ -26,27 +26,6 @@ gulp.task('browser-sync', function() {
     });
 });
 
-
-// Concat js files
-//gulp.task('scripts', function () {
-//    watch({glob: ['./project/src/assets/js/vendor/*.js','./project/src/assets/js/plugins/*.js','./project/src/assets/js/script.js']},
-//    function(files) {
-//        return files.pipe(concat('site.js'))
-//	.pipe(rename({
-//		suffix: '.min'
-//	}))
-//	.pipe(notify("JS files joined..."))
-//	.pipe(uglify())
-//	.pipe(gulp.dest('./project/build/assets/js'))
-//	.pipe(notify("JS files done..."))
-//	    .pipe(browserSync.reload({
-//			stream: true
-//		}))		
-//    });
-//});
-
-
-
 // Concat js files
 gulp.task('scripts', function() {
     return streamqueue({ objectMode: true },
@@ -68,19 +47,18 @@ gulp.task('scripts', function() {
 });
 
 
+
 // Parse Sass files
 gulp.task('sass', function () {
-    watch({glob: './project/src/assets/midas/**/*.scss'}, function(files) {
-        return files.pipe(sass())
+    gulp.src('./project/src/assets/midas/**/*.scss')
+        .pipe(sass())
         .pipe(notify("SASS processed"))
         .pipe(gulp.dest('./project/src/assets/css'))
         .pipe(minifyCSS())
         .pipe(gulp.dest('./project/build/assets/css'))
-        .pipe(notify("SASS updated"))
 		.pipe(browserSync.reload({
 			stream: true
-		})); 
-    });
+		}));        
 });
 
 
@@ -115,6 +93,8 @@ gulp.task('imagemin', function() {
 
 });
 
+
+
 // minify new or changed HTML pages
 var opts = {comments:true};
 
@@ -123,16 +103,27 @@ gulp.task('htmlpage', function () {
         .pipe(watch(function(files) {
             return files.pipe(minifyHTML(opts))
                 .pipe(gulp.dest('./project/build/'))
+            }))    
                 .pipe(browserSync.reload({
 					stream: true
 					}));
-        }));
+        
 });
 
 // Default task to be run with `gulp`
 gulp.task('default', ['sass','scripts','imagemin','htmlpage'], function () {
 	
-	gulp.start('cleancss');
+	
+	// Watch .js files
+	gulp.watch('./project/src/assets/js/**/*.js', ['scripts']);	
+
+	//minify images on change
+	gulp.watch('./project/src/assets/images/**/*.*', ['imagemin']);
+	
+	// Watch .scss files
+	gulp.watch('./project/src/assets/midas/**/*.scss', ['sass']);
+	
+	
 	gulp.start('browser-sync');
 
 });
