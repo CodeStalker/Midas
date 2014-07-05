@@ -17,7 +17,7 @@ You can just grab the files and work with CodeKit, Prepos or similar. Alternativ
 1. Install NPM
 2. Run from terminal in your midas folder:
 
-`npm install`
+`npm install --save-dev`
 
 then start some magic with:
 
