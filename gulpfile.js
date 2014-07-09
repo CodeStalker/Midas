@@ -57,7 +57,7 @@ gulp.task('scripts', function() {
 
 // Watch For Changes & Reload
 var htmlopts = {
-	comments: true
+	comments: false
 };
 gulp.task('html', function() {
 	return gulp.src('./project/src/**/*.html')
