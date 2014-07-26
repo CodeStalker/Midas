@@ -7,7 +7,6 @@ var gulp = require('gulp'),
 	size = require('gulp-size'),
 	uglify = require('gulp-uglify'),
 	watch = require('gulp-watch'),
-	notify = require("gulp-notify"),
 	useref = require('gulp-useref'),
 	gulpif = require('gulp-if'),
 	minifyCSS = require('gulp-minify-css'),
@@ -36,7 +35,6 @@ gulp.task('sass', function() {
 	gulp.src('./project/src/assets/midas/**/*.scss')
 	.pipe(sass())
 	.pipe(gulp.dest('./project/src/assets/css'))
-	.pipe(notify("SASS parssed"));
 });
 
 // Concat js files
@@ -52,7 +50,6 @@ gulp.task('scripts', function() {
 	}))
 	.pipe(uglify())
 	.pipe(gulp.dest('./project/build/assets/js'))
-	.pipe(notify("script files done..."));
 });
 
 // Watch For Changes & Reload
@@ -67,12 +64,11 @@ gulp.task('html', function() {
 	.pipe(useref())
 	.pipe(minifyHTML(htmlopts))
 	.pipe(gulp.dest('./project/build/'))
-	.pipe(notify("HTML & Assets Minified"));
 });
 
 // Run static server and watch files
 gulp.task('serve', function() {
-	browserSync.init(["./project/build/assets/css/*.css", "./project/build/assets/js/*.js"], {
+	browserSync.init(["./project/build/assets/css/*.css", "./project/build/**/*.html", "./project/build/assets/js/*.js"], {
 		server: {
 			baseDir: ['./project/build/']
 		},
