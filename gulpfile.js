@@ -12,10 +12,19 @@ var gulp = require('gulp'),
 	minifyCSS = require('gulp-minify-css'),
 	concat = require('gulp-concat'),
 	rename = require('gulp-rename'),
+	plumber = require('gulp-plumber'),
+	gutil = require('gulp-util'),
 	
 	streamqueue = require("streamqueue"),
 	runSequence = require('run-sequence'),
+	
 	browserSync = require('browser-sync');
+
+var onError = function (err) {  
+  gutil.beep();
+  console.log(err);
+};
+
 
 // Optimise Images
 gulp.task('images', function() {
@@ -33,6 +42,7 @@ gulp.task('images', function() {
 // Parse Sass files
 gulp.task('sass', function() {
 	gulp.src('./project/src/assets/midas/**/*.scss')
+	.pipe(plumber(onError))
 	.pipe(sass())
 	.pipe(gulp.dest('./project/src/assets/css'))
 });

@@ -26,6 +26,8 @@
     "gulp-if": "~1.2.1",
     "streamqueue": "~0.1.1",
     "gulp-rename": "~1.2.0",
-    "gulp-concat": "~2.2.0"
+    "gulp-concat": "~2.2.0",
+    "gulp-plumber": "~0.6.4",
+    "gulp-util": "~3.0.0"
   }
 }
