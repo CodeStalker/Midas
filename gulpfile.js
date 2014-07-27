@@ -1,3 +1,5 @@
+'use strict';
+
 // Include gulp
 var gulp = require('gulp'),
 	cache = require('gulp-cache'),
@@ -14,10 +16,12 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	plumber = require('gulp-plumber'),
 	gutil = require('gulp-util'),
+	clean = require('gulp-clean'),
+	changed = require('gulp-changed'),
 	
 	streamqueue = require("streamqueue"),
 	runSequence = require('run-sequence'),
-	
+	del = require('del'),
 	browserSync = require('browser-sync');
 
 var onError = function (err) {  
@@ -25,19 +29,32 @@ var onError = function (err) {
   console.log(err);
 };
 
-
 // Optimise Images
 gulp.task('images', function() {
-	return gulp.src('./project/src/assets/images/**/*')
-	.pipe(cache(imagemin({
-		progressive: true,
-		interlaced: true
-	})))
-	.pipe(gulp.dest('./project/build/assets/images/'))
-	.pipe(size({
-		title: 'images'
-	}));
+  	gulp.src('./project/src/assets/images/**/*')
+  	.pipe(changed('./project/build/assets/images'))
+    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+    .pipe(gulp.dest('./project/build/assets/images'));
 });
+
+// Clean Images
+gulp.task('clean-images', function(cb) {
+	del(['project/build/assets/images/**/*'], cb);
+});
+
+
+
+// Copy Web Fonts To Dist
+gulp.task('fonts', function () {
+  return gulp.src(['project/src/assets/fonts/**/*'])
+    .pipe(gulp.dest('project/build/assets/fonts'))
+});
+
+// Clean Fonts
+gulp.task('clean-fonts', function(cb) {
+	del(['project/build/assets/fonts/**/*'], cb);
+});
+
 
 // Parse Sass files
 gulp.task('sass', function() {
@@ -73,27 +90,32 @@ gulp.task('html', function() {
 	.pipe(useref.restore())
 	.pipe(useref())
 	.pipe(minifyHTML(htmlopts))
-	.pipe(gulp.dest('./project/build/'))
+	.pipe(gulp.dest('./project/build'))
 });
 
 // Run static server and watch files
 gulp.task('serve', function() {
-	browserSync.init(["./project/build/assets/css/*.css", "./project/build/**/*.html", "./project/build/assets/js/*.js"], {
+	browserSync.init(["./project/build/**/*.html", "./project/build/assets/fonts/*.*", "./project/build/assets/js/*.js"], {
 		server: {
 			baseDir: ['./project/build/']
 		},
 		notify: false
 	});
-	gulp.watch(['./project/src/**/*.html'], ['html']);
-	gulp.watch(['./project/src/assets/css/*.css'], ['html']);
-	gulp.watch(['./project/src/assets/js/**/*.js'], ['scripts']);
-	gulp.watch(['./project/src/assets/midas/**/*.scss'], ['sass']);
-	gulp.watch(['./project/src/assets/images/**/*.*'], ['images']);
+	
+	gulp.watch(['project/src/assets/midas/**/*.scss', 'project/src/**/*.html'], ['sass','html']);
+	gulp.watch('project/src/assets/js/**/*.js', ['scripts']);
+	gulp.watch(['project/src/assets/images', 'project/src/assets/images/**/*'], ['images']);
+	gulp.watch('project/src/assets/fonts/**/*', ['clean-fonts','fonts']);
+	
 });
 
 // Build Production Files
 gulp.task('build', function() {
-	runSequence('sass', ['html'], ['images'], ['serve']);
+	runSequence('sass', ['clean-images'], ['clean-fonts'], ['images'], ['fonts'], ['html'], ['serve']);
+});
+
+gulp.task('deploy', function() {
+	runSequence('sass', ['clean-images'], ['clean-fonts'], ['images'], ['fonts'], ['html']);
 });
 
 // Default Task
