@@ -84,10 +84,12 @@ var htmlopts = {
 	comments: false
 };
 gulp.task('html', function() {
+	var assets = useref.assets();
+
 	return gulp.src('./project/src/**/*.html')
-	.pipe(useref.assets())
+	.pipe(assets)
 	.pipe(gulpif('*.css', minifyCSS()))
-	.pipe(useref.restore())
+	.pipe(assets.restore())
 	.pipe(useref())
 	.pipe(minifyHTML(htmlopts))
 	.pipe(gulp.dest('./project/build'))
