@@ -16,7 +16,7 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	plumber = require('gulp-plumber'),
 	gutil = require('gulp-util'),
-	clean = require('gulp-clean'),
+	rimraf = require('gulp-rimraf'),
 	changed = require('gulp-changed'),
 	
 	streamqueue = require("streamqueue"),
@@ -38,21 +38,23 @@ gulp.task('images', function() {
 });
 
 // Clean Images
-gulp.task('clean-images', function(cb) {
-	del(['project/build/assets/images/**/*'], cb);
+gulp.task('clean-images', function() {
+  return gulp.src('./project/build/assets/images/**/*', { read: false }) // much faster
+    .pipe(rimraf());
 });
 
+
+// Clean Fonts
+gulp.task('clean-fonts', function() {
+  return gulp.src('./project/build/assets/fonts/**/*', { read: false }) // much faster
+    .pipe(rimraf());
+});
 
 
 // Copy Web Fonts To Dist
 gulp.task('fonts', function () {
   return gulp.src(['project/src/assets/fonts/**/*'])
     .pipe(gulp.dest('project/build/assets/fonts'))
-});
-
-// Clean Fonts
-gulp.task('clean-fonts', function(cb) {
-	del(['project/build/assets/fonts/**/*'], cb);
 });
 
 
@@ -113,11 +115,11 @@ gulp.task('serve', function() {
 
 // Build Production Files
 gulp.task('build', function() {
-	runSequence('sass', ['clean-images'], ['clean-fonts'], ['images'], ['fonts'], ['html'], ['serve']);
+	runSequence('clean-images', 'images', 'sass', ['clean-fonts'], ['fonts'], ['html'], ['serve']);
 });
 
 gulp.task('deploy', function() {
-	runSequence('sass', ['clean-images'], ['clean-fonts'], ['images'], ['fonts'], ['html']);
+	runSequence('clean-images', 'images', 'sass', ['clean-fonts'], ['fonts'], ['html']);
 });
 
 // Default Task
