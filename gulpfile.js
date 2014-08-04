@@ -109,7 +109,7 @@ gulp.task('html', function() {
 
 // Run static server and watch files
 gulp.task('serve', function() {
-	browserSync.init(["./project/build/**/*.html", "./project/build/assets/fonts/*.*", "./project/build/assets/js/*.js"], {
+	browserSync.init(["./project/build/**/*.html", "./project/src/assets/midas/**/*.scss", "./project/build/assets/fonts/*.*", "./project/build/assets/js/*.js"], {
 		server: {
 			baseDir: ['./project/build/']
 		},
