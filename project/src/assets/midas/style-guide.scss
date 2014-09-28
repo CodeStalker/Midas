@@ -1,0 +1,315 @@
+// ======================================================================
+// Midas
+// ======================================================================
+//
+// A small SASS powered kickstarter for RWD
+// Brought to you by @CodeStalker - midas.jamessteel.co.uk
+
+// ======================================================================
+// Partials
+// ======================================================================
+
+@import "partials/libs/normalize";
+@import "partials/libs/grid";
+@import "partials/libs/helpers";
+
+@import "partials/stacks";
+@import "partials/type";
+
+// ======================================================================
+// Debug
+// ======================================================================
+
+@import "partials/libs/pesticide";
+
+// ======================================================================
+// Vars
+// ======================================================================
+
+$total_columns: 12;
+$total_width: 100%;
+$gutter_width: 2%;
+$container_margin: 0%;
+
+$class_container: "row";
+$class_column: "col";
+$class_push: "push";
+
+$emerald: #2ecc71;
+$greensea: #16a085;
+
+// ====================================================================
+// Common
+// ====================================================================
+
+.main {
+    width: 100%;
+}
+
+.hero {
+    background-color: $emerald;
+    overflow: hidden;
+    @include container;
+    .logo {
+        color: #fff;
+        padding: 1rem;
+        border: 4px solid #fefefe;
+        margin: 2rem auto 1rem auto;
+        display: block;
+        max-width: 100px;
+        text-align: center;
+        font-size: 1.5rem;
+        clear: both;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .mission {
+        color: #fefefe;
+        text-align: center;
+        margin-bottom: 2rem;
+        h1 {
+            color: #fefefe;
+            padding: 0 8% 0 8%;
+        }
+        @include column(12);
+        @media screen and (min-width: 640px) {
+            @include column(6);
+            @include push(3);
+        }
+    }
+}
+
+.middle {
+    @include container;
+}
+
+.row {
+    clear: both;
+    overflow: hidden;
+}
+
+.elements {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+@include generate_helper_classes;
+
+// ======================================================================
+// Colors
+// ======================================================================
+
+.colors {
+    overflow: hidden;
+    .swatch {
+        @include column(12);
+        clear: both;
+    }
+    @media screen and (min-width: 640px) {
+        .swatch {
+            @include column(4);
+            clear: none;
+        }
+        @include generate_grid_positions(".swatch", 4);
+    }
+    span {
+        text-align: center;
+        color: #fff;
+        font-size: 80%;
+        font-weight: $extrabold;
+        height: 60px;
+        line-height: 60px;
+        border-radius: 5px;
+        display: block;
+        width: 100%;
+        margin: 0 0 $gutter_width 0;
+    }
+    .bright span {
+        background-color: $bright;
+        color: $medium;
+    }
+    .medium span {
+        background-color: $medium;
+    }
+    .dark span {
+        background-color: $dark;
+    }
+    .primary span {
+        background-color: $primary;
+    }
+    .secondary span {
+        background-color: $secondary;
+    }
+    .tertiary span {
+        background-color: $tertiary;
+    }
+    .positive span {
+        background-color: $positive;
+    }
+    .negative span {
+        background-color: $negative;
+    }
+    .warning span {
+        background-color: $warning;
+    }
+}
+
+// text elements
+blockquote {
+    color: $medium;
+}
+
+.inline {
+    @include container;
+    overflow: hidden;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    li {
+        @include column(4);
+        clear: none;
+        list-style: none;
+    }
+    @include generate_grid_positions("li", 4);
+    text-align: center;
+}
+
+// ======================================================================
+// Example Grids
+// ======================================================================
+
+.gridexamples {
+    .grid1,
+    .grid2,
+    .grid3,
+    .grid4 {
+        span {
+            background-color: $primary;
+            text-align: center;
+            color: #fff;
+            font-size: 80%;
+            font-weight: $extrabold;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+.col {
+    @include column(12);
+}
+
+@include generate_grid_positions(".col", 12);
+
+.grid1 {
+    @media screen and (min-width: 640px) {
+        .col {
+            @include column(1);
+        }
+        @include generate_grid_positions(".col", 1);
+    }
+}
+
+.grid4 {
+    @media screen and (min-width: 640px) {
+        .col {
+            @include column(4);
+        }
+        @include generate_grid_positions(".col", 4);
+    }
+}
+
+.grid6 {
+    @media screen and (min-width: 640px) {
+        .col {
+            @include column(6);
+        }
+        @include generate_grid_positions(".col", 6);
+    }
+}
+
+// ====================================================================
+// Video & Embeds
+// ====================================================================
+
+video {
+    width: 100%    !important;
+    height: auto   !important;
+}
+
+audio {
+    width: 100%;
+}
+
+.map {
+    @include ioe;
+}
+
+figure {
+    margin: 0 0 0 0;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+// ====================================================================
+// Footer
+// ====================================================================
+
+$container_margin: 2%;
+
+footer {
+    background-color: #eee;
+}
+
+.foot {
+    @include container;
+    clear: both;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    .love {
+        span {
+            color: #e74c3c;
+        }
+    }
+    .block {
+        @include column(12);
+        clear: both;
+        text-align: center;
+    }
+    @media screen and (min-width: 480px) {
+        @include generate_grid_positions(".block", 6);
+        .block {
+            @include column(6);
+            clear: none;
+            margin-bottom: 0;
+            padding: 0 0 0 0;
+        }
+        .footlinks {
+            text-align: left;
+            margin-bottom: 0 !important;
+            a {
+                color: #222;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+        .love {
+            text-align: right;
+            margin-bottom: 0 !important;
+            a {
+                color: #222;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

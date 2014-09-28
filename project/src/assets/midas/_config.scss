@@ -13,13 +13,17 @@ $pesticide-debug: false;
 
 // Colors
 
-$bright: 	#ecf0f1;
-$medium: 	#7f8c8d;
-$dark: 		#333333;
+$bright: 		#eeeeee;
+$medium: 		#666666;
+$dark: 			#222222;
 
-$primary: 	#2ecc71;
-$secondary: #16a085;
-$tertiary: 	#2980b9;
+$primary: 		#2ecc71;
+$secondary: 	#2c3e50;
+$tertiary: 		#42b3c5;
+
+$positive: 		#16a085;
+$negative: 		#c0392b;
+$warning: 		#f39c12;
 
 // Weights
 
@@ -38,16 +42,15 @@ $ultraheavy: 	900;
 $webkit-smoothing: antialiased;
 
 // Fonts
-
 $global-font-size: 		1rem;
 $global-line-height: 	1.5;
 
-$global-font-stack: 	$sgillsans;
+$global-font-stack: 	$shelvetica;
 $global-font-weight: 	$thin;
-$global-font-color: 	$dark;
+$global-font-color: 	$medium;
 
 // Headings
-$global-heading-stack: 	$sgillsans;
+$global-heading-stack: 	$gillsans;
 $global-heading-color: 	$primary;
 $global-heading-weight: $regular;
 

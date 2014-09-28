@@ -1,0 +1,8 @@
+// ======================================================================
+// Midas
+// ======================================================================
+//
+// A small SASS powered kickstarter for RWD
+// Brought to you by @CodeStalker - midas.jamessteel.co.uk
+
+// Drop your font files in here, but pay attention to the font licence!
