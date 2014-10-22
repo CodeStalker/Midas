@@ -138,7 +138,7 @@ gulp.task('sass', function() {
             sourceMap: 'sass'
         }))
 	.pipe(gulp.dest('./project/src/assets/css'))
-	.pipe(minifyCSS({keepBreaks:true}))
+	//.pipe(minifyCSS({keepBreaks:true}))
 	.pipe(gulp.dest('./project/build/assets/css'))
 	.pipe(notify("SASS Done!"));
 });
@@ -150,7 +150,7 @@ gulp.task('scripts', ['copy-head'], function() {
             },
             gulp.src('./project/src/assets/js/vendor/*.js'),
             gulp.src('./project/src/assets/js/plugins/*.js'),
-            gulp.src('./project/src/assets/js/*.js')
+            gulp.src('./project/src/assets/js/script.js')
         )
         .pipe(concat('site.js'))
         .pipe(rename({
@@ -171,7 +171,6 @@ gulp.task('html', function() {
         .pipe(gulp.dest('./project/build'))
         .pipe(notify("HTML Done!"));
 });
-
 
 
 // Run static server and watch files

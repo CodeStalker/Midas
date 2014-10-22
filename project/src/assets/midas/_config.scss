@@ -25,7 +25,7 @@ $positive: 		#16a085;
 $negative: 		#c0392b;
 $warning: 		#f39c12;
 
-// Weights
+// Font Weights
 
 $ultralight: 	100;
 $thin: 			200;
@@ -37,19 +37,22 @@ $extrabold: 	700;
 $heavy: 		800;
 $ultraheavy: 	900;
 
-// Smoothing
+// Font Smoothing
 
 $webkit-smoothing: antialiased;
 
-// Fonts
+// Typography Setup
+
+// 1rem = 16px
 $global-font-size: 		1rem;
 $global-line-height: 	1.5;
 
-$global-font-stack: 	$shelvetica;
+$global-font-stack: 	$gillsans;
 $global-font-weight: 	$thin;
 $global-font-color: 	$medium;
 
 // Headings
+
 $global-heading-stack: 	$gillsans;
 $global-heading-color: 	$primary;
 $global-heading-weight: $regular;
