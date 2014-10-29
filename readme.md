@@ -24,7 +24,7 @@ All you need to is run the default Gulp task with:
 
 `gulp`
 
-This will run Gulp, compile the project, launch a static server and watches images, webfonts, JS, SASS, and HTML files for changes.
+This will run Gulp, compile the project, launch a static server and watch images, web fonts, JS, SASS, and HTML files for changes.
 
 Additionally, It will also reload your browser automatically after processing any changed files. Neat, huh? This is the main task to use during development.
 
@@ -32,11 +32,11 @@ Additionally, It will also reload your browser automatically after processing an
 
 #### Sass
 
-Much of Midas is controlled with variables in the `_config.scss` file. It is here that you can configure the typography and colors. All you need to do now is create your styles in `site.scss` and optionally you can tweak the typeography by editing `partials/_type.scss`.
+Much of Midas is controlled with variables in the `_config.scss` file. It is here that you can configure the typography and colours. All you need to do now is create your styles in `site.scss` and optionally you can tweak the typography by editing `partials/_type.scss`.
 
 To aid with debugging browser issues, Midas includes Pesticide. You turn it on very easy by setting `$pesticide-debug: false;` in `_config.scss`.
 
-There is also a `style-guide.html` page that can be used to quicky test `_config.scss` changes and also serves as a general reference to using Midas. 
+There is also a `style-guide.html` page that can be used to quickly test `_config.scss` changes and also serves as a general reference to using Midas. 
 
 The grid system in Midas is the <a href="http://www.profoundgrid.com/">Profound Grid</a> made by <a href="http://www.weareprofound.com">We Are Profound</a>. Refer to their <a href="http://www.profoundgrid.com/">website</a> and the examples in `_style-guide.scss` for useage.
 
@@ -44,19 +44,19 @@ The grid system in Midas is the <a href="http://www.profoundgrid.com/">Profound 
 
 Javascript gets compiled the following order:
 
-`src/assets/js/vendor/*.js'`
+`src/assets/js/vendor/*.js`
 
-`src/assets/js/plugins/*.js'`
+`src/assets/js/plugins/*.js`
 
-`src/assets/js/script.js'`
+`src/assets/js/script.js`
 
-This produces a single `site.min.js` that is concatonated in the correct order and keeps your project tidy if you stick to the three simple rules below:
+This produces a single `site.min.js` that is concatenated in the correct order and keeps your project tidy if you stick to the three simple rules below:
 
-1. Major scripts like Jquery or Zepto go in `src/assets/js/vendor/`
-2. Plugins & libraries that depend on this library and are not meant to be edited like Jquery UI or your own plugins go in `src/assets/js/plugins/`
-3. Any snippets of jQuery to fire off those plugins or do something else with your project should be written into `src/assets/js/script.js'`
+1. Major scripts like jQuery or Zepto go in `src/assets/js/vendor/`
+2. Plugins & libraries that depend on this library and are not meant to be edited like jQuery UI or your own plugins go in `src/assets/js/plugins/`
+3. Any snippets of jQuery to fire off those plugins or do something else with your project should be written into `src/assets/js/script.js`
 
-Additionally the Javascripts (and CSS) are loaded in parrallel via <a href="http://headjs.com/">head.js</a>. This gives you a smorgasbord of options for responsive design as we all browser/device capability testing. Refer to its <a href="http://headjs.com/site/api/v1.00.html">docs</a> for further help.
+Additionally the javascript's (and CSS) are loaded in parallel via <a href="http://headjs.com/">head.js</a>. This gives you a smorgasbord of options for responsive design as we all browser/device capability testing. Refer to its <a href="http://headjs.com/site/api/v1.00.html">docs</a> for further help.
 
 
 #### Images
