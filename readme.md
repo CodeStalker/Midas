@@ -30,6 +30,7 @@ Additionally, It will also reload your browser automatically after processing an
 
 ## General Use
 
+
 #### Sass
 
 Much of Midas is controlled with variables in the `_config.scss` file. It is here that you can configure the typography and colours. All you need to do now is create your styles in `site.scss` and optionally you can tweak the typography by editing `partials/_type.scss`.
@@ -102,6 +103,7 @@ Midas was built around a few other projects. It includes:
 
 If you want to learn more about the thought process behind Midas and how it came to be, you can find a full overview <a href="http://jamessteel.co.uk/blog/roll-your-own-framework-overview">here.</a>
 
+A complete working example of a finished project made with Midas can be seen here - <a href="https://github.com/CodeStalker/Geraldine-Midas">Geraldine Theme</a>
 
 <small> Midas is Copyright © 2014 James Steel <jamesrobertsteel@googlemail.com>
 This work is free. You can redistribute it and/or modify it under the
