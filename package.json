@@ -30,7 +30,6 @@
     "gulp-util": "^3.0.0",
     "del": "^0.1.1",
     "gulp-changed": "^0.4.1",
-    "gulp-rimraf": "^0.1.0",
     "gulp-notify": "^1.4.1"
   }
 }

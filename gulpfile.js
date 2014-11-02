@@ -22,7 +22,6 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
-    rimraf = require('gulp-rimraf'),
     changed = require('gulp-changed'),
     notify = require("gulp-notify"),
 
@@ -41,6 +40,7 @@ var htmlopts = {
     comments: false
 };
 
+
 // Optimise Images
 gulp.task('images', function() {
     gulp.src('./project/src/assets/images/**/*')
@@ -55,55 +55,57 @@ gulp.task('images', function() {
         .pipe(notify("IMAGES Done!"));
 });
 
+
 // Clean Images
-gulp.task('clean-images', function() {
-    return gulp.src('./project/build/assets/images/**/*.*', {
-            read: false
-        }) // much faster
-        .pipe(rimraf());
-});
+gulp.task('clean-fonts', function (cb) {
+  del([
+    './project/build/assets/images/**/*.*'
+  ], cb);
+})
 
 
 // Clean Fonts
-gulp.task('clean-fonts', function() {
-    return gulp.src('./project/build/assets/fonts/**/*.*', {
-            read: false
-        }) // much faster
-        .pipe(rimraf());
-});
+gulp.task('clean-fonts', function (cb) {
+  del([
+    './project/build/assets/fonts/**/*.*'
+  ], cb);
+})
 
-// Clean Fonts
-gulp.task('clean-scripts', function() {
-    return gulp.src('./project/build/assets/js/**/*.*', {
-            read: false
-        }) // much faster
-        .pipe(rimraf());
-});
-
-
+// Clean Scripts
+gulp.task('clean-scripts', function (cb) {
+  del([
+    './project/build/assets/js/**/*.*'
+  ], cb);
+})
 
 // Clean HTML
-gulp.task('clean-html', function() {
-    return gulp.src('./project/build/**/*.html', {
-            read: false
-        }) // much faster
-        .pipe(rimraf());
-});
+gulp.task('clean-html', function (cb) {
+  del([
+    './project/build/**/*.html'
+  ], cb);
+})
 
-// Clean HTML
-gulp.task('clean-css', function() {
-    return gulp.src('./project/build/**/*.css', {
-            read: false
-        }) // much faster
-        .pipe(rimraf());
-});
+// Clean CSS
+gulp.task('clean-css', function (cb) {
+  del([
+    './project/build/**/*.css'
+  ], cb);
+})
+
+
+// Nuke
+gulp.task('nuke', function (cb) {
+  del([
+    './project/build'
+  ], cb);
+})
 
 
 // Minify Sass files
 gulp.task('minify-sass', function() {
     gulp.src('./project/src/assets/midas/**/*.scss')
-        .pipe(plumber(onError))
         .pipe(sass())
+        .pipe(plumber(onError))
         .pipe(gulp.dest('./project/src/assets/css'))
         .pipe(minifyCSS({
             keepBreaks: false
@@ -138,7 +140,6 @@ gulp.task('sass', function() {
             sourceMap: 'sass'
         }))
 	.pipe(gulp.dest('./project/src/assets/css'))
-	//.pipe(minifyCSS({keepBreaks:true}))
 	.pipe(gulp.dest('./project/build/assets/css'))
 	.pipe(notify("SASS Done!"));
 });
@@ -198,7 +199,7 @@ gulp.task('build', function() {
 
 // Clean out some sh*t
 gulp.task('clean', function() {
-    runSequence('clean-images', 'clean-scripts', 'clean-css', 'clean-fonts', 'clean-html');
+    gulp.start('nuke');
 });
 
 // Build delpoyable version of files
