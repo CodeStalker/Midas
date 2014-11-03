@@ -117,7 +117,7 @@ gulp.task('minify-sass', function() {
 
 // Copy Web Fonts To Dist
 gulp.task('fonts', function() {
-    return gulp.src(['project/src/assets/fonts/**/*.{ttf,woff,eot,svg}'])
+    return gulp.src(['project/src/assets/fonts/**/*.{ttf,woff,eot,svg}'],{read:false})
         .pipe(gulp.dest('project/build/assets/fonts'))
         .pipe(notify("FONTS Done!"));
 });
@@ -133,16 +133,16 @@ gulp.task('copy-head', function() {
 // Parse Sass files
 gulp.task('sass', function() {
 	gulp.src('./project/src/assets/midas/**/*.scss')
-	.pipe(plumber(onError))
         .pipe(sass({
             errLogToConsole: true,
             sourceComments: 'map',
             sourceMap: 'sass'
         }))
-	.pipe(gulp.dest('./project/src/assets/css'))
+	.pipe(plumber(onError))
 	.pipe(gulp.dest('./project/build/assets/css'))
 	.pipe(notify("SASS Done!"));
 });
+
 
 // Concat js files
 gulp.task('scripts', ['copy-head'], function() {
