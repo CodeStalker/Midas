@@ -21,7 +21,7 @@ var htmlopts = {
 gulp.task('html', function() {
     return gulp.src('./project/src/**/*.html')
         .pipe(changed('./project/build'))
-        .pipe(minifyHTML(htmlopts))
+        // .pipe(minifyHTML(htmlopts))
         .pipe(plumber(onError))
         .pipe(gulp.dest('./project/build'))
         .pipe(notify("HTML Done!"));
