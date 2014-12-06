@@ -11,7 +11,7 @@ module.exports = {
 
 
     sass: {
-        src: src + prefix + "midas/*.scss",
+        src: src + prefix + "midas/**/*.scss",
         dest: dest + prefix + "/css/",
         temp: src + prefix + "/css/"
     },
