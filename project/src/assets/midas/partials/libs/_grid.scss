@@ -52,7 +52,7 @@ $class_push:		'push';		//				//
 
 @function column_width(){
 	@if ($total_width == 100%){
-	  	$not_rounded_value: (((100 + $gutter_width)/$total_columns))-$gutter_width;
+	  	$not_rounded_value: (((100% + $gutter_width)/$total_columns))-$gutter_width;
 	    $not_rounded_value: $not_rounded_value * 100;
 	    $rounded_value: round($not_rounded_value)/100;
 	    @return $rounded_value * 1%;

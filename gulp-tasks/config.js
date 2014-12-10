@@ -2,10 +2,12 @@
 // Midas Gulp Config Options
 // ======================================================================
 
-var dest = "./project/build";
+var dest = './project/server';
 var src = './project/src';
 var prefix = '/assets/';
 var erase = './project/build';
+
+var vm = "http://yourtestserver.dev";
 
 module.exports = {
 
@@ -31,8 +33,15 @@ module.exports = {
     },
 
     fonts: {
-        src: src + prefix + "fonts/*.{ttf,woff,eot,svg}",
+        src: src + prefix + "fonts/*.{ttf,woff,eot,svg,html}",
         dest: dest + prefix + "fonts/"
+    },
+    iconfonts: {
+        fontlocation: prefix + "fonts/",
+        sketchfile: src + prefix + "sketch/",
+        templatepath: src + prefix + "templates/",
+        scssoutput: src + prefix + "midas/partials/",
+        fontoutput: src + prefix + "fonts/"
     },
     clean: {
         nuke: dest,
@@ -40,12 +49,19 @@ module.exports = {
     },
     browserSync: {
         server: {
-            baseDir: [dest]
+           // baseDir: [dest]
+           baseDir: './project/build',
         },
 
         notify: false,
-
         files: [dest + "/**/*.css", dest + "/**/*.html", dest + "/**/*.{ttf,woff,eot,svg}", dest + "/**/*.js"]
+
+    },
+    browserSyncVM: {
+
+        proxy: vm,
+        notify: false,
+        files: [dest + "/**/*.css", dest + "fonts/**/*.{ttf,woff,eot,svg}", dest + "/**/*.js"]
 
     },
 
