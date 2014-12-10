@@ -2,11 +2,12 @@
 // Midas Gulp Config Options
 // ======================================================================
 
-var dest = './project/server';
+var dest = './project/build';
 var src = './project/src';
 var prefix = '/assets/';
 var erase = './project/build';
 
+// make the webroot of your test domain match the 'dest' var above
 var vm = "http://yourtestserver.dev";
 
 module.exports = {
@@ -49,8 +50,7 @@ module.exports = {
     },
     browserSync: {
         server: {
-           // baseDir: [dest]
-           baseDir: './project/build',
+           baseDir: [dest]
         },
 
         notify: false,
