@@ -37,13 +37,6 @@ module.exports = {
         src: src + prefix + "fonts/*.{ttf,woff,eot,svg,html}",
         dest: dest + prefix + "fonts/"
     },
-    iconfonts: {
-        fontlocation: prefix + "fonts/",
-        sketchfile: src + prefix + "sketch/",
-        templatepath: src + prefix + "templates/",
-        scssoutput: src + prefix + "midas/partials/",
-        fontoutput: src + prefix + "fonts/"
-    },
     clean: {
         nuke: dest,
         erase: dest + prefix
