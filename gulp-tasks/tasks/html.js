@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     minifyHTML = require('gulp-minify-html'),
     notify = require("gulp-notify"),
     plumber = require('gulp-plumber');
-    // config     = require('../config').html;
+    config = require('../config').html;
 
 // Get plumber to beep on error
 var onError = function(err) {
@@ -11,18 +11,16 @@ var onError = function(err) {
     console.log(err);
 };
 
-
 var htmlopts = {
     comments: false
 };
 
-
 // Minify HTML
 gulp.task('html', function() {
-    return gulp.src('./project/src/**/*.html')
-        .pipe(changed('./project/build'))
-        // .pipe(minifyHTML(htmlopts))
+    return gulp.src(config.src)
+        .pipe(changed(config.src))
+        .pipe(minifyHTML(htmlopts))
         .pipe(plumber(onError))
-        .pipe(gulp.dest('./project/build'))
+        .pipe(gulp.dest(config.dest))
         .pipe(notify("HTML Done!"));
 });

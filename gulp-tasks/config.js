@@ -23,7 +23,7 @@ module.exports = {
         dest: dest + prefix + "images"
     },
     html: {
-        src: src + "/*.html",
+        src: src + "/**/*.html",
         dest: dest
     },
     // Don't use a trailing slash on paths to scripts here!
