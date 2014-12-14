@@ -11,6 +11,11 @@
 
 $pesticide-debug: false;
 
+$class_container: "row";
+$class_column: "col";
+$class_push: "push";
+
+
 // Colors
 $bright: 		#eeeeee;
 $medium: 		#666666;
@@ -56,3 +61,5 @@ $global-heading-weight: $regular;
 // Links
 $link:			$tertiary;
 $link-hover:	$tertiary;
+
+
