@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     browserSync = require('browser-sync'),
+    watch = require('gulp-watch'),
     config      = require('../config');
 
 // Run static server and watch files
@@ -7,10 +8,11 @@ gulp.task('serve', function() {
 
     browserSync(config.browserSync);
    
-    gulp.watch(config.html.src, ['html']);
-    gulp.watch(config.sass.src, ['sass']);
-    gulp.watch(config.scripts.watch, ['scripts']);
-    gulp.watch(config.images.src, ['images']);
-    gulp.watch(config.fonts.src, ['fonts']);
+	watch(config.html.src, function() {gulp.start('html');});
+	watch(config.sass.src, function() {gulp.start('sass');});
+	watch(config.scripts.watch, function() {gulp.start('scripts');});
+	watch(config.fonts.src, function() {gulp.start('fonts');});	
+	watch(config.images.src, function() {gulp.start('images');});
 
 });
+

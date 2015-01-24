@@ -22,5 +22,10 @@ gulp.task('images', function() {
         }))
         .pipe(plumber(onError))
         .pipe(gulp.dest(config.dest))
-        .pipe(notify("IMAGES Done!"));
+        .pipe(notify({
+                message: "Images Done!",
+                onLast: true
+            }
+
+        ));
 });

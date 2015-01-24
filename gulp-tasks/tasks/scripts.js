@@ -32,13 +32,27 @@ gulp.task('scripts', ['copy-head'], function() {
         .pipe(uglify())
         .pipe(gulp.dest(config.dest))
 
+    .pipe(notify({
+            message: "Scripts Done!",
+            onLast: true
+        }
 
-    .pipe(notify("SCRIPTS Done!"));
+    ));
 });
 
 // Copy head.js
 gulp.task('copy-head', function() {
     return gulp.src(config.src + '/head.js')
         .pipe(gulp.dest(config.dest))
-        .pipe(notify("Head copy done Done!"));
+        .pipe(notify(
+
+            {
+                message: "Head Copy Done!",
+                onLast: true
+            }
+
+        ));
+
+
+
 });

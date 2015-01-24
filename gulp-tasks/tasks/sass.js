@@ -13,27 +13,48 @@ var onError = function(err) {
 
 // Parse Sass files
 gulp.task('sass', function() {
-	gulp.src(config.src)
+    gulp.src(config.src)
         .pipe(sass({
             errLogToConsole: true,
             sourceComments: 'map',
             sourceMap: 'sass'
         }))
-	.pipe(plumber(onError))
-	.pipe(gulp.dest(config.dest))
-	.pipe(notify("SASS Done!"));
+        .pipe(plumber(onError))
+        .pipe(gulp.dest(config.dest))
+        .pipe(notify(
+
+            {
+                message: "SASS Done!",
+                onLast: true
+            }
+
+        ));
 });
 
 // Minify Sass files
 gulp.task('minify-sass', function() {
     gulp.src(config.src)
         .pipe(sass())
-        .pipe(plumber(onError))
+
+    .pipe(size())
+
+    .pipe(plumber(onError))
         .pipe(gulp.dest(config.temp))
         .pipe(minifyCSS({
             keepBreaks: false
         }))
-        .pipe(plumber(onError))
+
+
+    .pipe(plumber(onError))
         .pipe(gulp.dest(config.dest))
-        .pipe(notify("SASS Minify Done!"));
+        .pipe(notify(
+
+            {
+                message: "SASS Minify Done!",
+                onLast: true
+            }
+
+
+
+        ));
 });
