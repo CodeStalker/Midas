@@ -6,29 +6,112 @@
 // Brought to you by @CodeStalker - midas.jamessteel.co.uk
 
 // ======================================================================
-// Config
+// Debug
 // ======================================================================
 
 $pesticide-debug-outline: false;
 $pesticide-debug-depth: false;
 
-$class_container: "row";
-$class_column: "col";
-$class_push: "push";
+// ======================================================================
+// Grid
+// ======================================================================
+
+$total-columns: 	12 !default;			
+$total-width:		960px !default; 		
+$gutter-width:		1px !default;			
+$container-margin:	1px !default;		
+
+$class-container:	'row';		
+$class-column:		'col';		
+$class-push:		'push';		
+
+$bp-tiny: 			320px !default;
+$bp-xsmall: 		480px !default;
+$bp-small: 			640px !default;
+$bp-medium: 		800px !default;
+$bp-large: 			960px !default;
+$bp-xl: 			1140px !default;
+
+// ======================================================================
+// Gridler Defaults
+// ======================================================================
 
 
+$element: $class-column;
+
+$sm: $bp-small !default;
+$me: $bp-medium !default;
+$lg: $bp-large !default;
+
+$gridler-default-c: 12 !default;
+$sm-c: 6 !default;
+$me-c: 4 !default;
+$lg-c: 3 !default;
+
+
+// ======================================================================
 // Colors
+// ======================================================================
+
 $bright: 		#eeeeee;
 $medium: 		#666666;
 $dark: 			#222222;
 
 $primary: 		#2ecc71;
-$secondary: 	#2c3e50;
-$tertiary: 		#42b3c5;
+$secondary: 	#16a085;
+$tertiary: 		#2ecc71;
 
 $positive: 		#16a085;
 $negative: 		#c0392b;
 $warning: 		#f39c12;
+
+// ======================================================================
+// Typography Setup
+// ======================================================================
+
+
+// Set global font size
+$global-base-font-size: 16 !default;
+
+// Set global font size
+$global-line-height: 1.5 !default;
+
+// Set true to crank font sizes up and down (%) based on screen size.
+$responsive-text: true !default;
+
+// Responsive adjustment points
+
+// Font size up to $rt-bp-tiny
+$rt-bp-base: 			75% !default;		// 0px+ 
+
+$rt-bp-tiny: 			81.25% !default;   	// 320px	
+$rt-bp-xsmall: 			87.5% !default;		// 480px
+$rt-bp-small: 			93.75% !default;	// 640px
+$rt-bp-medium: 			100% !default;		// 800px
+$rt-bp-large: 			112.5% !default;	// 960px
+$rt-bp-xl: 				125% !default;      // 1140px
+
+// Common Type Ratio Presets
+$minor-second: 1.067;
+$major-second: 1.125;
+$minor-third: 1.2;
+$major-third: 1.25;
+$perfect-fourth: 1.333;
+$augmented-fourth: 1.414;
+$perfect-fifth: 1.5;
+$minor-sixth: 1.6;
+$golden-section: 1.618;
+$major-sixth: 1.667;
+$minor-seventh: 1.778;
+$major-seventh: 1.875;
+$octave: 2;
+$major-tenth: 2.5;
+$major-eleventh: 2.667;
+$major-twelfth: 3;
+$double-octave: 4;
+
+// Type Ratio
+$type-ratio: $perfect-fourth;
 
 // Font Weights
 $ultralight: 	100;
@@ -44,23 +127,41 @@ $ultraheavy: 	900;
 // Font Smoothing
 $webkit-smoothing: antialiased;
 
-// Typography Setup
+// Font Stack presets
+$times: Times, "Times New Roman", serif;
+$arial: Arial, sans-serif;
+$georgia: Georgia, serif;
+$garamond: "Apple Garamond", "ITC Garamond Narrow", "Garamond", serif;
+$helvetica: "Helvetica Neue", Helvetica, sans-serif;
+$verdana: "Verdana Ref", Verdana, sans-serif;
+$trebuchet: "Trebuchet MS", sans-serif;
+$gillsans: "Gill Sans MT", "Gill Sans", Tahoma, Geneva, sans-serif;
 
-// 1rem = 16px
-$global-font-size: 		1rem;
-$global-line-height: 	1.5;
+$stimes: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", "Times New Roman", Times, serif;
+$sgeorgia: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+$sgaramond: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Garamond, serif;
+$shelvetica: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, sans-serif;
+$sverdana: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Verdana Ref", Verdana, sans-serif;
+$strebuchet: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Trebuchet, sans-serif;
+$sgillsans: Frutiger, "Frutiger Linotype", Univers, Calibri, "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Gill Sans MT", "Gill Sans", sans-serif;
+$terminal: Monaco, "Lucida Sans Typewriter", Consolas, "Courier New", monospace;
 
-$global-font-stack: 	$gillsans;
-$global-font-weight: 	$thin;
-$global-font-color: 	$medium;
+// Global Paragraphs etc
+$global-font-stack: $shelvetica;
+$global-font-weight: $thin;
+$global-font-color: $medium;
 
 // Headings
-$global-heading-stack: 	$gillsans;
-$global-heading-color: 	$primary;
+$global-heading-stack: $gillsans;
+$global-heading-color: $dark;
 $global-heading-weight: $regular;
 
 // Links
-$link:			$tertiary;
-$link-hover:	$tertiary;
+$link: $primary;
+$link-hover: $primary;
+$link-hover-decoration: none;
+
+// Horizontal rule style
+$global-hr-style: 1px solid $primary;
 
 

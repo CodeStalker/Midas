@@ -1,6 +1,6 @@
-// head.ready(document, function() {
+head.ready(document, function() {
 	
-	// Your Code here!!
-	// Keep it tidy!!
+	//Your code goes here!!
+	//Keep it tidy!!
 	
-// });
+});

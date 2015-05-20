@@ -1,0 +1,141 @@
+// ======================================================================
+// Midas
+// ======================================================================
+//
+// A small SASS powered kickstarter for RWD
+// Brought to you by @CodeStalker - midas.jamessteel.co.uk
+
+// ======================================================================
+// Helpers
+// ======================================================================
+
+// Responsive iFrame and object embed
+
+@mixin ioe {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+
+    iframe,   
+    object,  
+    embed{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+}
+
+// The Gridler
+
+@mixin gridler($elm: $element, $gsmall:$sm-c, $gmedium:$me-c, $glarge:$lg-c) {
+    
+    @include container;
+
+    // default
+    .#{$elm} {
+        @include column($gridler-default-c);
+        clear: both;
+    }
+
+    // small
+    @media screen and (min-width: $sm) {
+        .#{$elm} {
+            @include column($gsmall);
+            clear: none;
+        }
+        @include generate_grid_positions(".#{$elm}", $gsmall);
+    }
+    // medium
+    @media screen and (min-width: $me) {
+        .#{$elm} {
+            @include column($gmedium);
+            clear: none;
+        }
+        @include generate_grid_positions(".#{$elm}", $gmedium);
+    }
+    // large
+    @media screen and (min-width: $lg) {
+        .#{$elm} {
+            @include column($glarge);
+            clear: none;
+        }
+        @include generate_grid_positions(".#{$elm}", $glarge);
+    }
+}
+
+
+// Typography
+// CAUTION! leave these variables alone!
+$global-font-size: 16;
+$type-default-font-size: $global-font-size !default;
+$type-base-line-height: $global-line-height !default;
+$type-base-font-size: $global-base-font-size !default;
+$type-scale-factor: $type-ratio;
+
+
+@function exponent($base, $exponent) {
+    @if pow(2, 2) == 4 {
+        @return pow($base, $exponent);
+    }
+    $value: $base;
+    @if $exponent > 1 {
+        @for $i from 2 through $exponent {
+            $value: $value * $base; } }
+    @if $exponent < 1 {
+        @for $i from 0 through -$exponent {
+            $value: $value / $base; } }
+    @return $value;
+}
+
+@mixin type-body($font-size: $type-base-font-size, $rem: false) {
+    font-size: $font-size * 1px;
+    line-height: round(($font-size * $type-base-line-height)) * 1px;
+    @if($rem == true) {
+        font-size: ($font-size / $type-default-font-size) * 1rem;
+        line-height: round(($font-size * $type-base-line-height)) / $type-default-font-size * 1rem;
+    }
+}
+
+
+@mixin type-heading($step, $rem: false) {
+    $font-size: $type-base-font-size;
+    $scale: $type-scale-factor;
+    $computed-font-size: round($font-size * exponent($scale, $step));
+    $line-height: round($font-size * $type-base-line-height);
+    $lines: ceil($computed-font-size / $line-height);
+    font-size: $computed-font-size * 1px;
+    line-height: $line-height * $lines * 1px;
+    margin-bottom: $line-height * 1px;
+    @if($step > 1) {
+        margin-top: $line-height * 2 * 1px;
+    }
+    @else {
+        margin-top: $line-height * 1px;
+    }
+    @if($rem == true) {
+        font-size: $computed-font-size / $type-default-font-size * 1rem;
+        line-height: ($line-height * $lines) / $type-default-font-size * 1rem;
+        margin-bottom: $line-height / $type-default-font-size * 1rem;
+        @if($step > 1) {
+            margin-top: ($line-height * 2) / $type-default-font-size * 1rem;
+        }
+        @else {
+            margin-top: $line-height / $type-default-font-size * 1rem;
+        }
+    }
+}
+
+
+@mixin type-margins($rem: false) {
+    margin-bottom: round($type-base-font-size * $type-base-line-height) * 1px;
+    margin-top: round($type-base-font-size * $type-base-line-height) * 1px;
+    @if($rem == true) {
+        margin-bottom: round($type-base-font-size * $type-base-line-height) / $type-default-font-size * 1rem;
+        margin-top: round($type-base-font-size * $type-base-line-height) / $type-default-font-size * 1rem;
+    }
+}

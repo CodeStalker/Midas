@@ -1,17 +1,22 @@
 // ======================================================================
-// Midas Gulp Config Options
+// Midas
+// ======================================================================
+//
+// A small SASS powered kickstarter for RWD
+// Brought to you by @CodeStalker - midas.jamessteel.co.uk
+
+// ======================================================================
+// Gulp Configuration
 // ======================================================================
 
 var dest = './project/build';
 var src = './project/src';
 var prefix = '/assets/';
 var erase = './project/build';
-
 // make the webroot of your test domain match the 'dest' var above
 var vm = "http://yourtestserver.dev";
 
 module.exports = {
-
 
     sass: {
         src: src + prefix + "midas/**/*.scss",
@@ -56,6 +61,6 @@ module.exports = {
         notify: false,
         files: [dest + "/**/*.css", dest + "fonts/**/*.{ttf,woff,eot,svg}", dest + "/**/*.js"]
 
-    },
+    }
 
 };

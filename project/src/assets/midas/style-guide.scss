@@ -6,21 +6,14 @@
 // Brought to you by @CodeStalker - midas.jamessteel.co.uk
 
 // ======================================================================
-// Partials
+// Imports
 // ======================================================================
 
-@import "partials/libs/normalize";
-@import "partials/libs/grid";
-@import "partials/libs/helpers";
+// Configuration
+@import "config";
 
-@import "partials/stacks";
-@import "partials/type";
-
-// ======================================================================
-// Debug
-// ======================================================================
-
-@import "partials/libs/pesticide";
+// Midas
+@import "partials/midas";
 
 // ======================================================================
 // Vars
@@ -31,26 +24,22 @@ $total_width: 100%;
 $gutter_width: 2%;
 $container_margin: 0%;
 
-$class_container: "row";
-$class_column: "col";
-$class_push: "push";
+$class_container: "styleguide-row";
+$class_column: "styleguide-col";
+$class_push: "styleguide-push";
 
 $emerald: #2ecc71;
 $greensea: #16a085;
 
-// ====================================================================
-// Common
-// ====================================================================
+// ======================================================================
+// Globals
+// ======================================================================
 
-.main {
-    width: 100%;
-}
-
-.hero {
+.styleguide-hero {
     background-color: $emerald;
     overflow: hidden;
     @include container;
-    .logo {
+    .styleguide-logo {
         color: #fff;
         padding: 1rem;
         border: 4px solid #fefefe;
@@ -64,7 +53,7 @@ $greensea: #16a085;
             text-decoration: none;
         }
     }
-    .mission {
+    .styleguide-mission {
         color: #fefefe;
         text-align: center;
         margin-bottom: 2rem;
@@ -80,16 +69,16 @@ $greensea: #16a085;
     }
 }
 
-.middle {
+.styleguide-middle {
     @include container;
 }
 
-.row {
+.styleguide-row {
     clear: both;
     overflow: hidden;
 }
 
-.elements {
+.styleguide-elements {
     max-width: 1200px;
     margin: auto;
     overflow: hidden;
@@ -102,18 +91,18 @@ $greensea: #16a085;
 // Colors
 // ======================================================================
 
-.colors {
+.styleguide-colors {
     overflow: hidden;
-    .swatch {
+    .styleguide-swatch {
         @include column(12);
         clear: both;
     }
     @media screen and (min-width: 640px) {
-        .swatch {
+        .styleguide-swatch {
             @include column(4);
             clear: none;
         }
-        @include generate_grid_positions(".swatch", 4);
+        @include generate_grid_positions(".styleguide-swatch", 4);
     }
     span {
         text-align: center;
@@ -127,42 +116,42 @@ $greensea: #16a085;
         width: 100%;
         margin: 0 0 $gutter_width 0;
     }
-    .bright span {
+    .styleguide-bright span {
         background-color: $bright;
         color: $medium;
     }
-    .medium span {
+    .styleguide-medium span {
         background-color: $medium;
     }
-    .dark span {
+    .styleguide-dark span {
         background-color: $dark;
     }
-    .primary span {
+    .styleguide-primary span {
         background-color: $primary;
     }
-    .secondary span {
+    .styleguide-secondary span {
         background-color: $secondary;
     }
-    .tertiary span {
+    .styleguide-tertiary span {
         background-color: $tertiary;
     }
-    .positive span {
+    .styleguide-positive span {
         background-color: $positive;
     }
-    .negative span {
+    .styleguide-negative span {
         background-color: $negative;
     }
-    .warning span {
+    .styleguide-warning span {
         background-color: $warning;
     }
 }
 
 // text elements
-blockquote {
+.styleguide blockquote {
     color: $medium;
 }
 
-.inline {
+.styleguide-inline {
     @include container;
     overflow: hidden;
     margin: 0 0 0 0;
@@ -180,11 +169,11 @@ blockquote {
 // Example Grids
 // ======================================================================
 
-.gridexamples {
-    .grid1,
-    .grid2,
-    .grid3,
-    .grid4 {
+.styleguide-gridexamples {
+    .styleguide-grid1,
+    .styleguide-grid2,
+    .styleguide-grid3,
+    .styleguide-grid4 {
         span {
             background-color: $primary;
             text-align: center;
@@ -200,57 +189,57 @@ blockquote {
     }
 }
 
-.col {
+.styleguide-col {
     @include column(12);
 }
 
-@include generate_grid_positions(".col", 12);
+@include generate_grid_positions(".styleguide-col", 12);
 
-.grid1 {
+.styleguide-grid1 {
     @media screen and (min-width: 640px) {
-        .col {
+        .styleguide-col {
             @include column(1);
         }
-        @include generate_grid_positions(".col", 1);
+        @include generate_grid_positions(".styleguide-col", 1);
     }
 }
 
-.grid4 {
+.styleguide-grid4 {
     @media screen and (min-width: 640px) {
-        .col {
+        .styleguide-col {
             @include column(4);
         }
-        @include generate_grid_positions(".col", 4);
+        @include generate_grid_positions(".styleguide-col", 4);
     }
 }
 
-.grid6 {
+.styleguide-grid6 {
     @media screen and (min-width: 640px) {
-        .col {
+        .styleguide-col {
             @include column(6);
         }
-        @include generate_grid_positions(".col", 6);
+        @include generate_grid_positions(".styleguide-col", 6);
     }
 }
 
-// ====================================================================
+// ======================================================================
 // Video & Embeds
-// ====================================================================
+// ======================================================================
 
-video {
+.styleguide video {
     width: 100%    !important;
     height: auto   !important;
 }
 
-audio {
+.styleguide audio {
     width: 100%;
 }
 
-.map {
+.styleguide-map {
     @include ioe;
 }
 
-figure {
+.styleguide figure {
     margin: 0 0 0 0;
     img {
         width: 100%;
@@ -258,54 +247,55 @@ figure {
     }
 }
 
-// ====================================================================
+// ======================================================================
 // Lists
-// ====================================================================
+// ======================================================================
 
-.lists {
-    .un, .ord {
+.styleguide-lists {
+    .styleguide-un, .styleguide-ord {
         @include column(6);
     }
-    .un {
+    .styleguide-un {
         @include push(6);
     }
 }
 
-// ====================================================================
+// ======================================================================
 // Footer
-// ====================================================================
+// ======================================================================
 
 $container_margin: 2%;
 
-footer {
+.styleguide footer {
     background-color: #eee;
+    overflow: hidden;
 }
 
-.foot {
+.styleguide-foot {
     @include container;
     clear: both;
     height: 40px;
     line-height: 40px;
     font-size: 14px;
-    .love {
+    .styleguide-love {
         span {
             color: #e74c3c;
         }
     }
-    .block {
+    .styleguide-block {
         @include column(12);
         clear: both;
         text-align: center;
     }
     @media screen and (min-width: 480px) {
-        @include generate_grid_positions(".block", 6);
-        .block {
+        @include generate_grid_positions(".styleguide-block", 6);
+        .styleguide-block {
             @include column(6);
             clear: none;
             margin-bottom: 0;
             padding: 0 0 0 0;
         }
-        .footlinks {
+        .styleguide-footlinks {
             text-align: left;
             margin-bottom: 0 !important;
             a {
@@ -315,7 +305,7 @@ footer {
                 }
             }
         }
-        .love {
+        .styleguide-love {
             text-align: right;
             margin-bottom: 0 !important;
             a {

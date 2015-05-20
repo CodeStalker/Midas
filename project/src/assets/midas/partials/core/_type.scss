@@ -6,29 +6,72 @@
 // Brought to you by @CodeStalker - midas.jamessteel.co.uk
 
 // ======================================================================
-// Typography
-// ======================================================================
-
-@import "../config";
-
-// ======================================================================
 // Basic
 // ======================================================================
 
-html {
-    font-size: 75%;
-    -webkit-font-smoothing: $webkit-smoothing;
+@if $responsive-text == false {
+    html {
+        font-size: 100%;
+        -webkit-font-smoothing: $webkit-smoothing;
+    }
 }
 
-@media only screen and (min-width: 320px)  { html { font-size: 81.25%; }}       
-@media only screen and (min-width: 480px)  { html { font-size: 87.5%;  }}
-@media only screen and (min-width: 640px)  { html { font-size: 100%;   }}
-@media only screen and (min-width: 960px)  { html { font-size: 112.5%; }}
-@media only screen and (min-width: 1440px) { html { font-size: 125%;   }}
+@if $responsive-text == true {
+    html {
+        font-size: $rt-bp-base;
+     
+        -webkit-font-smoothing: $webkit-smoothing;
+    }
+    @media only screen and (min-width: $bp-tiny) {
+        html {
+            font-size: $rt-bp-tiny;
+          
+       
+        }
+    }
+    @media only screen and (min-width: $bp-xsmall) {
+        html {
+            font-size: $rt-bp-xsmall;
+        
+       
+        }
+    }
+    @media only screen and (min-width: $bp-small) {
+        html {
+            font-size: $rt-bp-small;
+       
+       
+        }
+    }
+    @media only screen and (min-width: $bp-medium) {
+        html {
+            font-size: $rt-bp-medium;
+   
+       
+        }
+    }
+    @media only screen and (min-width: $bp-large) {
+        html {
+            font-size: $rt-bp-large;
+          
+       
+        }
+    }
+    @media only screen and (min-width: $bp-xl) {
+        html {
+            font-size: $rt-bp-xl;
+         
+       
+        }
+    }
+}
+
+// ======================================================================
+// Global Font
+// ======================================================================
 
 body {
-    font-size: $global-font-size;
-    line-height: $global-line-height;
+    @include type-body($global-base-font-size, true);
     font-weight: $global-font-weight;
     color: $global-font-color;
     font-family: $global-font-stack;
@@ -38,9 +81,6 @@ body {
 // Headings
 // ======================================================================
 
-// Values below use the perfect fourth ratio.
-// Generated with gridlover - http://www.gridlover.net/app/
-
 h1, h2, h3, h4, h5, h6 {
     color: $global-heading-color;
     font-weight: $global-font-weight;
@@ -49,31 +89,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2.375rem;
-    line-height: 3rem;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
+    @include type-heading(3, true);
 }
 
 h2 {
-    font-size: 1.75rem;
-    line-height: 3rem;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
+    @include type-heading(2, true);
 }
 
 h3 {
-    font-size: 1.3125rem;
-    line-height: 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    @include type-heading(1, true);
 }
 
 h4, h5, h6 {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    @include type-heading(0, true);
 }
 
 // ======================================================================
@@ -81,8 +109,7 @@ h4, h5, h6 {
 // ======================================================================
 
 p {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    @include type-margins(true);
 }
 
 // ======================================================================
@@ -90,8 +117,7 @@ p {
 // ======================================================================
 
 ul, ol {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    @include type-margins(true);
 }
 
 ul ul, ol ol, ul ol, ol ul {
@@ -113,17 +139,14 @@ dl {
 // ======================================================================
 
 table {
+    @include type-margins(true);
     border-collapse: collapse;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
     position: relative;
     table-layout: fixed;
     width: 100%;
     tr, th, td {
         margin: 0;
-
     }
-    
     td {
         line-height: $global-line-height;
     }
@@ -142,8 +165,7 @@ caption {
 // ======================================================================
 
 blockquote {
-    padding: 0 0 0 1.5rem;
-    margin: 1.5rem 0 1.5rem 0;
+    @include type-margins(true);
     font-style: italic;
 }
 
@@ -159,7 +181,7 @@ a {
     text-decoration: none;
     color: $link;
     &:hover {
-        text-decoration: underline;
+        text-decoration: $link-hover-decoration;
         color: $link-hover;
     }
 }
@@ -168,8 +190,8 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid $medium;
-    margin: 1.5rem 0 1.5rem 0;
+    border-top: $global-hr-style;
+    @include type-margins(true);
     padding: 0;
 }
 
@@ -196,7 +218,7 @@ strong {
     line-height: 1;
 }
 
-rem, dfn, cite, q {
+em, dfn, cite, q {
     line-height: $global-line-height;
 }
 
@@ -204,24 +226,17 @@ dfn {
     font-weight: $extrabold;
 }
 
-pre, code, tt, kbd {
+pre, code, kbd {
     font-family: $terminal;
 }
 
 pre {
     white-space: pre;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    @include type-margins(true);
 }
 
-pre, code, tt {
-    font-size: 0.9rem;
+pre, code {
     line-height: $global-line-height;
-}
-
-tt {
-    display: block;
-    margin: 1.5rem 0;
 }
 
 kbd {
@@ -229,14 +244,6 @@ kbd {
     top: -1px;
     margin-bottom: 1px;
     padding: 0 0;
-    font-size: 0.9rem;
-}
-
-@media only screen and (min-width: 480px) {
-    kbd {
-        padding: 0.1rem 0rem;
-        font-size: 0.75rem;
-    }
 }
 
 pre {
