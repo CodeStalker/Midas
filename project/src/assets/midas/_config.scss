@@ -81,15 +81,15 @@ $responsive-text: true !default;
 
 // Responsive adjustment points
 
-// Font size up to $rt-bp-tiny
-$rt-bp-base: 			75% !default;		// 0px+ 
+	// Font size up to $rt-bp-tiny
+	$rt-bp-base: 			75% !default;		// 0px+ 
 
-$rt-bp-tiny: 			81.25% !default;   	// 320px	
-$rt-bp-xsmall: 			87.5% !default;		// 480px
-$rt-bp-small: 			93.75% !default;	// 640px
-$rt-bp-medium: 			100% !default;		// 800px
-$rt-bp-large: 			112.5% !default;	// 960px
-$rt-bp-xl: 				125% !default;      // 1140px
+	$rt-bp-tiny: 			81.25% !default;   	// 320px	
+	$rt-bp-xsmall: 			87.5% !default;		// 480px
+	$rt-bp-small: 			93.75% !default;	// 640px
+	$rt-bp-medium: 			100% !default;		// 800px
+	$rt-bp-large: 			112.5% !default;	// 960px
+	$rt-bp-xl: 				125% !default;      // 1140px
 
 // Common Type Ratio Presets
 $minor-second: 1.067;
