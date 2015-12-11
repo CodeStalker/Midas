@@ -38,7 +38,9 @@ $greensea: #16a085;
 .styleguide-hero {
     background-color: $emerald;
     overflow: hidden;
+
     @include container;
+
     .styleguide-logo {
         color: #fff;
         padding: 1rem;
@@ -49,21 +51,27 @@ $greensea: #16a085;
         text-align: center;
         font-size: 1.5rem;
         clear: both;
+
         &:hover {
             text-decoration: none;
         }
     }
+
     .styleguide-mission {
         color: #fefefe;
         text-align: center;
         margin-bottom: 2rem;
+
         h1 {
             color: #fefefe;
             padding: 0 8% 0 8%;
         }
+
         @include column(12);
+
         @media screen and (min-width: 640px) {
             @include column(6);
+
             @include push(3);
         }
     }
@@ -93,17 +101,23 @@ $greensea: #16a085;
 
 .styleguide-colors {
     overflow: hidden;
+
     .styleguide-swatch {
         @include column(12);
+
         clear: both;
     }
+
     @media screen and (min-width: 640px) {
         .styleguide-swatch {
             @include column(4);
+
             clear: none;
         }
+
         @include generate_grid_positions(".styleguide-swatch", 4);
     }
+
     span {
         text-align: center;
         color: #fff;
@@ -116,31 +130,40 @@ $greensea: #16a085;
         width: 100%;
         margin: 0 0 $gutter_width 0;
     }
+
     .styleguide-bright span {
         background-color: $bright;
         color: $medium;
     }
+
     .styleguide-medium span {
         background-color: $medium;
     }
+
     .styleguide-dark span {
         background-color: $dark;
     }
+
     .styleguide-primary span {
         background-color: $primary;
     }
+
     .styleguide-secondary span {
         background-color: $secondary;
     }
+
     .styleguide-tertiary span {
         background-color: $tertiary;
     }
+
     .styleguide-positive span {
         background-color: $positive;
     }
+
     .styleguide-negative span {
         background-color: $negative;
     }
+
     .styleguide-warning span {
         background-color: $warning;
     }
@@ -153,15 +176,20 @@ $greensea: #16a085;
 
 .styleguide-inline {
     @include container;
+
     overflow: hidden;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
+
     li {
         @include column(4);
+
         clear: none;
         list-style: none;
     }
+
     @include generate_grid_positions("li", 4);
+
     text-align: center;
 }
 
@@ -200,6 +228,7 @@ $greensea: #16a085;
         .styleguide-col {
             @include column(1);
         }
+
         @include generate_grid_positions(".styleguide-col", 1);
     }
 }
@@ -209,6 +238,7 @@ $greensea: #16a085;
         .styleguide-col {
             @include column(4);
         }
+
         @include generate_grid_positions(".styleguide-col", 4);
     }
 }
@@ -218,6 +248,7 @@ $greensea: #16a085;
         .styleguide-col {
             @include column(6);
         }
+
         @include generate_grid_positions(".styleguide-col", 6);
     }
 }
@@ -241,6 +272,7 @@ $greensea: #16a085;
 
 .styleguide figure {
     margin: 0 0 0 0;
+
     img {
         width: 100%;
         height: auto;
@@ -255,8 +287,71 @@ $greensea: #16a085;
     .styleguide-un, .styleguide-ord {
         @include column(6);
     }
+
     .styleguide-un {
         @include push(6);
+    }
+}
+
+// ======================================================================
+// Grids
+// ======================================================================
+
+// Default Gridler
+// ======================================================================
+
+.styleguide-defaultgridler {
+    // by default the gridler uses the same classes as the grid
+    // and breaks on the variables set in the config...
+    @include gridler;
+}
+
+// Custom Gridler
+// ======================================================================
+
+.styleguide-customgridler {
+    // ... BUT you can reset these on the fly if needed by setting any one
+    // (or all) of the variables below. These over ride the the columns used
+    // at the breakpoints set in the config for the gridler and the class name
+    // used for the columns.
+
+    @include gridler($elm: "gridler-col", $gsmall: 6, $gmedium: 3, $glarge: 4);
+}
+
+// Holy Grail
+// ======================================================================
+
+.styleguide-holygrail {
+    .holygrail-leftside, .holygrail-middle, .holygrail-rightside {
+        @include column(12);
+
+        clear: both;
+    }
+
+    @media screen and (min-width: 640px) {
+        .holygrail-leftside {
+            @include column(3);
+
+            clear: none;
+        }
+
+        // push the middle over by width of preceding column
+        .holygrail-middle {
+            @include column(5);
+
+            @include push(3);
+
+            clear: none;
+        }
+
+        // push the rightside over by the sum of the preceding columns
+        .holygrail-rightside {
+            @include column(5);
+
+            @include push(8);
+
+            clear: none;
+        }
     }
 }
 
@@ -273,43 +368,56 @@ $container_margin: 2%;
 
 .styleguide-foot {
     @include container;
+
     clear: both;
     height: 40px;
     line-height: 40px;
     font-size: 14px;
+
     .styleguide-love {
         span {
             color: #e74c3c;
         }
     }
+
     .styleguide-block {
         @include column(12);
+
         clear: both;
         text-align: center;
     }
+
     @media screen and (min-width: 480px) {
         @include generate_grid_positions(".styleguide-block", 6);
+
         .styleguide-block {
             @include column(6);
+
             clear: none;
             margin-bottom: 0;
             padding: 0 0 0 0;
         }
+
         .styleguide-footlinks {
             text-align: left;
             margin-bottom: 0 !important;
+
             a {
                 color: #222;
+
                 &:hover {
                     text-decoration: none;
                 }
             }
         }
+
         .styleguide-love {
             text-align: right;
             margin-bottom: 0 !important;
+
             a {
                 color: #222;
+
                 &:hover {
                     text-decoration: none;
                 }

@@ -1,8 +1,6 @@
- head.ready(document, function() {
-	
-	// Your Code here!!
-	// Keep it tidy!!
+head.ready(document, function() {
 
-	// alert("MIDAS ROCKS!!");
-	
- });
+    //Your code goes here!!
+    //Keep it tidy!!
+
+});
