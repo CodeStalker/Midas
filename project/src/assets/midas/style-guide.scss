@@ -253,49 +253,6 @@ $greensea: #16a085;
     }
 }
 
-// ======================================================================
-// Video & Embeds
-// ======================================================================
-
-.styleguide video {
-    width: 100%    !important;
-    height: auto   !important;
-}
-
-.styleguide audio {
-    width: 100%;
-}
-
-.styleguide-map {
-    @include ioe;
-}
-
-.styleguide figure {
-    margin: 0 0 0 0;
-
-    img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-// ======================================================================
-// Lists
-// ======================================================================
-
-.styleguide-lists {
-    .styleguide-un, .styleguide-ord {
-        @include column(6);
-    }
-
-    .styleguide-un {
-        @include push(6);
-    }
-}
-
-// ======================================================================
-// Grids
-// ======================================================================
 
 // Default Gridler
 // ======================================================================
@@ -311,9 +268,9 @@ $greensea: #16a085;
 
 .styleguide-customgridler {
     // ... BUT you can reset these on the fly if needed by setting any one
-    // (or all) of the variables below. These over ride the the columns used
-    // at the breakpoints set in the config for the gridler and the class name
-    // used for the columns.
+    // (or all) of the variables below. These overide the the columns used
+    // at the breakpoints set in the config for the gridler and the class
+    // name used for the columns.
 
     @include gridler($elm: "gridler-col", $gsmall: 6, $gmedium: 3, $glarge: 4);
 }
@@ -354,6 +311,51 @@ $greensea: #16a085;
         }
     }
 }
+
+
+
+
+
+// ======================================================================
+// Video & Embeds
+// ======================================================================
+
+.styleguide video {
+    width: 100%    !important;
+    height: auto   !important;
+}
+
+.styleguide audio {
+    width: 100%;
+}
+
+.styleguide-map {
+    @include ioe;
+}
+
+.styleguide figure {
+    margin: 0 0 0 0;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+// ======================================================================
+// Lists
+// ======================================================================
+
+.styleguide-lists {
+    .styleguide-un, .styleguide-ord {
+        @include column(6);
+    }
+
+    .styleguide-un {
+        @include push(6);
+    }
+}
+
 
 // ======================================================================
 // Footer

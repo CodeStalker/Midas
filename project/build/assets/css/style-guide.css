@@ -1119,51 +1119,6 @@ pre {
     clear: none; } }
 
 /* line 260, stdin */
-.styleguide video {
-  width: 100%    !important;
-  height: auto   !important; }
-
-/* line 265, stdin */
-.styleguide audio {
-  width: 100%; }
-
-/* line 269, stdin */
-.styleguide-map {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden; }
-  /* line 21, /Volumes/Code/Repos/Frameworks/Midas/project/src/assets/midas/partials/core/_helpers.scss */
-  .styleguide-map iframe,
-  .styleguide-map object,
-  .styleguide-map embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0; }
-
-/* line 273, stdin */
-.styleguide figure {
-  margin: 0 0 0 0; }
-  /* line 276, stdin */
-  .styleguide figure img {
-    width: 100%;
-    height: auto; }
-
-/* line 287, stdin */
-.styleguide-lists .styleguide-un, .styleguide-lists .styleguide-ord {
-  float: left;
-  margin-right: -100%;
-  width: 49%; }
-
-/* line 291, stdin */
-.styleguide-lists .styleguide-un {
-  margin-left: 51%; }
-
-/* line 303, stdin */
 .styleguide-defaultgridler {
   width: 100%;
   margin: 0 0%; }
@@ -1246,7 +1201,7 @@ pre {
       margin-bottom: 2%;
       clear: none; } }
 
-/* line 312, stdin */
+/* line 269, stdin */
 .styleguide-customgridler {
   width: 100%;
   margin: 0 0%; }
@@ -1329,7 +1284,7 @@ pre {
       margin-bottom: 2%;
       clear: none; } }
 
-/* line 325, stdin */
+/* line 282, stdin */
 .styleguide-holygrail .holygrail-leftside, .styleguide-holygrail .holygrail-middle, .styleguide-holygrail .holygrail-rightside {
   float: left;
   margin-right: -100%;
@@ -1337,20 +1292,20 @@ pre {
   clear: both; }
 
 @media screen and (min-width: 640px) {
-  /* line 332, stdin */
+  /* line 289, stdin */
   .styleguide-holygrail .holygrail-leftside {
     float: left;
     margin-right: -100%;
     width: 23.5%;
     clear: none; }
-  /* line 339, stdin */
+  /* line 296, stdin */
   .styleguide-holygrail .holygrail-middle {
     float: left;
     margin-right: -100%;
     width: 40.5%;
     margin-left: 25.5%;
     clear: none; }
-  /* line 348, stdin */
+  /* line 305, stdin */
   .styleguide-holygrail .holygrail-rightside {
     float: left;
     margin-right: -100%;
@@ -1358,12 +1313,57 @@ pre {
     margin-left: 68%;
     clear: none; } }
 
-/* line 364, stdin */
+/* line 323, stdin */
+.styleguide video {
+  width: 100%    !important;
+  height: auto   !important; }
+
+/* line 328, stdin */
+.styleguide audio {
+  width: 100%; }
+
+/* line 332, stdin */
+.styleguide-map {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden; }
+  /* line 21, /Volumes/Code/Repos/Frameworks/Midas/project/src/assets/midas/partials/core/_helpers.scss */
+  .styleguide-map iframe,
+  .styleguide-map object,
+  .styleguide-map embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; }
+
+/* line 336, stdin */
+.styleguide figure {
+  margin: 0 0 0 0; }
+  /* line 339, stdin */
+  .styleguide figure img {
+    width: 100%;
+    height: auto; }
+
+/* line 350, stdin */
+.styleguide-lists .styleguide-un, .styleguide-lists .styleguide-ord {
+  float: left;
+  margin-right: -100%;
+  width: 49%; }
+
+/* line 354, stdin */
+.styleguide-lists .styleguide-un {
+  margin-left: 51%; }
+
+/* line 366, stdin */
 .styleguide footer {
   background-color: #eee;
   overflow: hidden; }
 
-/* line 369, stdin */
+/* line 371, stdin */
 .styleguide-foot {
   width: 96%;
   margin: 0 2%;
@@ -1371,10 +1371,10 @@ pre {
   height: 40px;
   line-height: 40px;
   font-size: 14px; }
-  /* line 378, stdin */
+  /* line 380, stdin */
   .styleguide-foot .styleguide-love span {
     color: #e74c3c; }
-  /* line 383, stdin */
+  /* line 385, stdin */
   .styleguide-foot .styleguide-block {
     float: left;
     margin-right: -100%;
@@ -1394,7 +1394,7 @@ pre {
       margin-left: 51%;
       margin-bottom: 2%;
       clear: none; }
-    /* line 393, stdin */
+    /* line 395, stdin */
     .styleguide-foot .styleguide-block {
       float: left;
       margin-right: -100%;
@@ -1402,24 +1402,24 @@ pre {
       clear: none;
       margin-bottom: 0;
       padding: 0 0 0 0; }
-    /* line 401, stdin */
+    /* line 403, stdin */
     .styleguide-foot .styleguide-footlinks {
       text-align: left;
       margin-bottom: 0 !important; }
-      /* line 405, stdin */
+      /* line 407, stdin */
       .styleguide-foot .styleguide-footlinks a {
         color: #222; }
-        /* line 408, stdin */
+        /* line 410, stdin */
         .styleguide-foot .styleguide-footlinks a:hover {
           text-decoration: none; }
-    /* line 414, stdin */
+    /* line 416, stdin */
     .styleguide-foot .styleguide-love {
       text-align: right;
       margin-bottom: 0 !important; }
-      /* line 418, stdin */
+      /* line 420, stdin */
       .styleguide-foot .styleguide-love a {
         color: #222; }
-        /* line 421, stdin */
+        /* line 423, stdin */
         .styleguide-foot .styleguide-love a:hover {
           text-decoration: none; } }
 
